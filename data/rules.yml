@@ -1,0 +1,224 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet user with greet_form
+  steps:
+  - intent: greet
+  - action: greet_form
+  - active_loop: greet_form
+
+- rule: Submit greet_form
+  condition:
+  - active_loop: greet_form
+  steps:
+  - action: greet_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_greet
+
+- rule: Show menu
+  steps:
+  - intent: ask_menu
+  - action: action_check_login_state
+  - action: action_show_menu
+
+- rule: Provide capabilities
+  steps:
+  - intent: ask_capabilities
+  - action: utter_provide_info
+
+- rule: Provide introduction
+  steps:
+  - intent: ask_introduction
+  - action: utter_imabot
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_imabot
+
+# --- Login Menu Forms Rules ---
+
+- rule: Activate menu_diskon_alumni_form
+  steps:
+  - intent: menu_diskon_alumni
+  - action: menu_diskon_alumni_form
+  - active_loop: menu_diskon_alumni_form
+
+- rule: Submit menu_diskon_alumni_form
+  condition:
+  - active_loop: menu_diskon_alumni_form
+  steps:
+  - action: menu_diskon_alumni_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_diskon_alumni
+
+- rule: Activate menu_hasil_seleksi_form
+  steps:
+  - intent: menu_hasil_seleksi
+  - action: menu_hasil_seleksi_form
+  - active_loop: menu_hasil_seleksi_form
+
+- rule: Submit menu_hasil_seleksi_form
+  condition:
+  - active_loop: menu_hasil_seleksi_form
+  steps:
+  - action: menu_hasil_seleksi_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_hasil_seleksi
+
+- rule: Activate menu_kartu_ujian_form
+  steps:
+  - intent: menu_kartu_ujian
+  - action: menu_kartu_ujian_form
+  - active_loop: menu_kartu_ujian_form
+
+- rule: Submit menu_kartu_ujian_form
+  condition:
+  - active_loop: menu_kartu_ujian_form
+  steps:
+  - action: menu_kartu_ujian_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_kartu_ujian
+
+- rule: Activate menu_pembayaran_form
+  steps:
+  - intent: menu_pembayaran
+  - action: menu_pembayaran_form
+  - active_loop: menu_pembayaran_form
+
+- rule: Submit menu_pembayaran_form
+  condition:
+  - active_loop: menu_pembayaran_form
+  steps:
+  - action: menu_pembayaran_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_pembayaran
+
+- rule: Activate menu_pendaftaran_form
+  steps:
+  - intent: menu_pendaftaran
+  - action: menu_pendaftaran_form
+  - active_loop: menu_pendaftaran_form
+
+- rule: Submit menu_pendaftaran_form
+  condition:
+  - active_loop: menu_pendaftaran_form
+  steps:
+  - action: menu_pendaftaran_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_pendaftaran
+
+- rule: Activate menu_penyetaraan_form
+  steps:
+  - intent: menu_penyetaraan
+  - action: menu_penyetaraan_form
+  - active_loop: menu_penyetaraan_form
+
+- rule: Submit menu_penyetaraan_form
+  condition:
+  - active_loop: menu_penyetaraan_form
+  steps:
+  - action: menu_penyetaraan_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_penyetaraan
+
+- rule: Activate menu_perjanjian_form
+  steps:
+  - intent: menu_perjanjian
+  - action: menu_perjanjian_form
+  - active_loop: menu_perjanjian_form
+
+- rule: Submit menu_perjanjian_form
+  condition:
+  - active_loop: menu_perjanjian_form
+  steps:
+  - action: menu_perjanjian_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_perjanjian
+
+- rule: Activate menu_pindah_prodi_form
+  steps:
+  - intent: menu_pindah_prodi
+  - action: menu_pindah_prodi_form
+  - active_loop: menu_pindah_prodi_form
+
+- rule: Submit menu_pindah_prodi_form
+  condition:
+  - active_loop: menu_pindah_prodi_form
+  steps:
+  - action: menu_pindah_prodi_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_pindah_prodi
+
+- rule: Activate menu_reservasi_kesehatan_form
+  steps:
+  - intent: menu_reservasi_kesehatan
+  - action: menu_reservasi_kesehatan_form
+  - active_loop: menu_reservasi_kesehatan_form
+
+- rule: Submit menu_reservasi_kesehatan_form
+  condition:
+  - active_loop: menu_reservasi_kesehatan_form
+  steps:
+  - action: menu_reservasi_kesehatan_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_reservasi_kesehatan
+
+- rule: Activate menu_undur_diri_form
+  steps:
+  - intent: menu_undur_diri
+  - action: menu_undur_diri_form
+  - active_loop: menu_undur_diri_form
+
+- rule: Submit menu_undur_diri_form
+  condition:
+  - active_loop: menu_undur_diri_form
+  steps:
+  - action: menu_undur_diri_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_undur_diri
+
+# --- Not Login Menu Rules ---
+
+- rule: Handle info_jadwal_seleksi
+  steps:
+  - intent: info_jadwal_seleksi
+  - action: action_info_jadwal_seleksi
+
+- rule: Handle info_skema_keuangan
+  steps:
+  - intent: info_skema_keuangan
+  - action: action_info_skema_keuangan
+
+- rule: Handle info_dokumen_pendaftaran
+  steps:
+  - intent: info_dokumen_pendaftaran
+  - action: action_info_dokumen_pendaftaran
+
+- rule: Handle info_dokumen_registrasi
+  steps:
+  - intent: info_dokumen_registrasi
+  - action: action_info_dokumen_registrasi

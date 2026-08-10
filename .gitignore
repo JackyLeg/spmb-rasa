@@ -1,0 +1,18 @@
+# Rasa
+.rasa/
+models/
+.webchatCache/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Cache directories
+.cache/
+.config/
+.keras/

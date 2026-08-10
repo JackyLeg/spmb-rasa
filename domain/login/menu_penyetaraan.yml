@@ -1,0 +1,90 @@
+version: "3.1"
+
+actions:
+  - action_menu_penyetaraan
+
+slots:
+  menu_penyetaraan:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Penyetaraan
+      - Persyaratan Penyetaraan
+      - Hasil Penyetaraan
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_penyetaraan_form
+            requested_slot: menu_penyetaraan
+
+  menu_penyetaraan_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_penyetaraan_form
+            requested_slot: menu_penyetaraan_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_penyetaraan_form
+            requested_slot: menu_penyetaraan_confirmation
+
+forms:
+  menu_penyetaraan_form:
+    required_slots:
+      - menu_penyetaraan
+      - menu_penyetaraan_confirmation
+
+
+responses:
+  utter_ask_menu_penyetaraan:
+    - text: "Silakan pilih salah satu opsi penyetaraan:"
+      buttons:
+        - title: "Prosedur Penyetaraan"
+          payload: "Prosedur Penyetaraan"
+        - title: "Persyaratan Penyetaraan"
+          payload: "Persyaratan Penyetaraan"
+        - title: "Hasil Penyetaraan"
+          payload: "Hasil Penyetaraan"
+
+  utter_ask_menu_penyetaraan_confirmation:
+    - text: "Anda memilih opsi: {menu_penyetaraan}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_penyetaraan_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi penyetaraan."
+
+  utter_menu_penyetaraan_ok:
+    - text: "Anda telah memilih opsi penyetaraan: {menu_penyetaraan}."
+
+  utter_answer_prosedur_penyetaraan:
+    - text: |
+        PROSEDUR PENYETARAAN MATA KULIAH / NILAI (BAGI PINDAHAN/LANJUT JENIS)
+        1. Login ke portal SPMB Trisakti Anda.
+        2. Pilih menu pengajuan penyetaraan mata kuliah.
+        3. Isi data asal universitas dan unggah transkrip nilai resmi yang diperoleh sebelumnya.
+        4. Program studi tujuan akan melakukan penilaian konversi mata kuliah yang diakui.
+        5. Hasil penyetaraan nilai konversi akan diterbitkan dalam bentuk Surat Keterangan Penyetaraan.
+
+  utter_answer_persyaratan_penyetaraan:
+    - text: |
+        PERSYARATAN PENYETARAAN
+        1. Transkrip nilai resmi akademik dari perguruan tinggi asal.
+        2. Surat Keterangan Pindah atau surat pengantar resmi dari kampus asal.
+        3. Silabus mata kuliah yang pernah ditempuh di kampus asal (jika diminta oleh program studi tujuan).
+        4. Terdaftar secara resmi di PDDikti (Pangkalan Data Pendidikan Tinggi).
+
+  utter_answer_hasil_penyetaraan:
+    - text: "Hasil konversi penyetaraan nilai mata kuliah Anda telah selesai dinilai oleh program studi."
+
+  utter_answer_error_penyetaraan:
+    - text: "Maaf, terjadi kesalahan pada menu penyetaraan. Silakan coba lagi."

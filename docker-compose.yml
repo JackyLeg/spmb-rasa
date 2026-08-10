@@ -1,0 +1,31 @@
+services:
+  rasa:
+    image: rasa/rasa:3.6.21-full
+    ports:
+      - "6005:6005"
+    volumes:
+      - ./:/app
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+      - -p
+      - "6005"
+    depends_on:
+      - action_server
+
+  action_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.actions
+    volumes:
+      - ./actions:/app/actions
+    command:
+      - start
+      - --actions
+      - actions
+      - -p
+      - "6055"
+    expose:
+      - "6055"

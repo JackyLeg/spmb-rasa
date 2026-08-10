@@ -1,0 +1,88 @@
+version: "3.1"
+
+actions:
+  - action_menu_kartu_ujian
+
+slots:
+  menu_kartu_ujian:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Kartu Ujian
+      - Persyaratan Kartu Ujian
+      - Hasil Kartu Ujian
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_kartu_ujian_form
+            requested_slot: menu_kartu_ujian
+
+  menu_kartu_ujian_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_kartu_ujian_form
+            requested_slot: menu_kartu_ujian_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_kartu_ujian_form
+            requested_slot: menu_kartu_ujian_confirmation
+
+forms:
+  menu_kartu_ujian_form:
+    required_slots:
+      - menu_kartu_ujian
+      - menu_kartu_ujian_confirmation
+
+
+responses:
+  utter_ask_menu_kartu_ujian:
+    - text: "Silakan pilih salah satu opsi kartu ujian:"
+      buttons:
+        - title: "Prosedur Kartu Ujian"
+          payload: "Prosedur Kartu Ujian"
+        - title: "Persyaratan Kartu Ujian"
+          payload: "Persyaratan Kartu Ujian"
+        - title: "Hasil Kartu Ujian"
+          payload: "Hasil Kartu Ujian"
+
+  utter_ask_menu_kartu_ujian_confirmation:
+    - text: "Anda memilih opsi: {menu_kartu_ujian}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_kartu_ujian_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi kartu ujian."
+
+  utter_menu_kartu_ujian_ok:
+    - text: "Anda telah memilih opsi kartu ujian: {menu_kartu_ujian}."
+
+  utter_answer_prosedur_kartu_ujian:
+    - text: |
+        PROSEDUR CETAK KARTU PESERTA UJIAN
+        1. Login ke akun portal SPMB Trisakti Anda.
+        2. Masuk ke halaman dashboard peserta.
+        3. Klik menu "Cetak Kartu Ujian" setelah status pembayaran pendaftaran terverifikasi.
+        4. Simpan berkas PDF atau cetak fisik kartu ujian untuk dibawa saat hari pelaksanaan ujian.
+
+  utter_answer_persyaratan_kartu_ujian:
+    - text: |
+        PERSYARATAN KARTU UJIAN
+        1. Status pembayaran formulir pendaftaran telah lunas dan terverifikasi di sistem keuangan.
+        2. Seluruh data biodata wajib pada formulir pendaftaran telah diisi dengan lengkap.
+        3. Dokumen foto peserta berformat resmi telah berhasil diunggah.
+
+  utter_answer_hasil_kartu_ujian:
+    - text: "Kartu Ujian Anda telah diterbitkan. Silakan unduh melalui dashboard akun SPMB Anda."
+
+  utter_answer_error_kartu_ujian:
+    - text: "Maaf, terjadi kesalahan pada menu kartu ujian. Silakan coba lagi."

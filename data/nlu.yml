@@ -1,0 +1,210 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - halo
+    - hai
+    - helo
+    - hello
+    - hi
+    - selamat pagi
+    - selamat siang
+    - selamat sore
+    - selamat malam
+    - pagi
+    - siang
+    - sore
+    - malam
+    - assalamualaikum
+    - spmbbot
+
+- intent: goodbye
+  examples: |
+    - dadah
+    - bye
+    - sampai jumpa
+    - selamat tinggal
+    - daah
+    - dadahh
+    - bye bye
+
+- intent: affirm
+  examples: |
+    - ya
+    - Ya
+    - ok
+    - OK
+    - oke
+    - betul
+    - benar
+    - iya
+    - sip
+    - yup
+    - baik
+    - setuju
+
+- intent: deny
+  examples: |
+    - tidak
+    - Tidak
+    - no
+    - bukan
+    - gak
+    - ga
+    - batal
+    - dibatalkan
+    - gamau
+    - nggak
+    - ndak
+
+- intent: ask_menu
+  examples: |
+    - menu
+    - tampilkan menu
+    - daftar menu
+    - lihat menu
+    - pilihan menu
+    - apa saja menunya
+    - buka menu
+    - list menu
+
+- intent: ask_capabilities
+  examples: |
+    - fitur apa saja
+    - apa yang bisa kamu lakukan
+    - kamu bisa apa
+    - bantuan apa yang kamu sediakan
+    - apa saja fitur spmbbot
+    - tolong bantu saya
+    - help
+    - bantuan
+
+- intent: ask_introduction
+  examples: |
+    - siapa kamu
+    - kamu siapa
+    - nama kamu siapa
+    - apa itu spmbbot
+    - jelaskan diri kamu
+    - perkenalkan diri
+
+- intent: menu_pendaftaran
+  examples: |
+    - pendaftaran
+    - Pendaftaran
+    - pendaftaran spmb
+    - info pendaftaran
+    - menu pendaftaran
+    - saya ingin daftar
+
+- intent: menu_kartu_ujian
+  examples: |
+    - kartu ujian
+    - Kartu Ujian
+    - cetak kartu ujian
+    - info kartu ujian
+    - cetak kartu
+    - nomor ujian
+
+- intent: menu_hasil_seleksi
+  examples: |
+    - hasil seleksi
+    - Hasil Seleksi
+    - kelulusan
+    - hasil ujian
+    - apakah saya lulus
+    - hasil seleksi saya
+
+- intent: menu_perjanjian
+  examples: |
+    - perjanjian
+    - Perjanjian
+    - isi perjanjian
+    - dokumen perjanjian
+    - surat perjanjian
+
+- intent: menu_pembayaran
+  examples: |
+    - pembayaran
+    - Pembayaran / Keuangan
+    - keuangan
+    - bayar kuliah
+    - biaya kuliah
+    - cara bayar
+    - virtual account
+
+- intent: menu_undur_diri
+  examples: |
+    - undur diri
+    - Undur Diri
+    - batalkan pendaftaran
+    - mengundurkan diri
+    - batal masuk
+
+- intent: menu_pindah_prodi
+  examples: |
+    - pindah prodi
+    - Pindah Prodi
+    - ganti jurusan
+    - pindah program studi
+    - ganti prodi
+
+- intent: menu_diskon_alumni
+  examples: |
+    - diskon alumni
+    - Diskon Alumni
+    - potongan alumni
+    - beasiswa alumni
+    - potongan biaya alumni
+
+- intent: menu_penyetaraan
+  examples: |
+    - penyetaraan
+    - Penyetaraan
+    - penyetaraan ijazah
+    - konversi nilai
+    - penyetaraan nilai luar negeri
+
+- intent: menu_reservasi_kesehatan
+  examples: |
+    - reservasi kesehatan
+    - Reservasi Pemeriksaan Kesehatan
+    - tes kesehatan
+    - reservasi pemeriksaan kesehatan
+    - jadwal tes kesehatan
+    - booking tes kesehatan
+
+- intent: info_jadwal_seleksi
+  examples: |
+    - info jadwal seleksi
+    - Info Jadwal Seleksi
+    - jadwal ujian
+    - jadwal pendaftaran
+    - kapan pendaftaran dibuka
+    - tanggal ujian
+
+- intent: info_skema_keuangan
+  examples: |
+    - info skema keuangan
+    - Info Skema Keuangan
+    - biaya pendaftaran
+    - rincian biaya
+    - rincian keuangan
+    - berapa biaya masuk
+
+- intent: info_dokumen_pendaftaran
+  examples: |
+    - info kelengkapan dokumen pendaftaran
+    - Info Kelengkapan Dokumen Pendaftaran
+    - dokumen daftar
+    - berkas pendaftaran
+    - apa saja dokumen pendaftaran
+
+- intent: info_dokumen_registrasi
+  examples: |
+    - info kelengkapan dokumen registrasi
+    - Info Kelengkapan Dokumen Registrasi
+    - dokumen registrasi
+    - berkas daftar ulang
+    - dokumen daftar ulang

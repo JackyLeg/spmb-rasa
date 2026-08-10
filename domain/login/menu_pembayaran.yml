@@ -1,0 +1,93 @@
+version: "3.1"
+
+actions:
+  - action_menu_pembayaran
+
+slots:
+  menu_pembayaran:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Pembayaran
+      - Persyaratan Pembayaran
+      - Transaksi Pembayaran
+      - Hasil Pembayaran
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_pembayaran_form
+            requested_slot: menu_pembayaran
+
+  menu_pembayaran_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_pembayaran_form
+            requested_slot: menu_pembayaran_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_pembayaran_form
+            requested_slot: menu_pembayaran_confirmation
+
+forms:
+  menu_pembayaran_form:
+    required_slots:
+      - menu_pembayaran
+      - menu_pembayaran_confirmation
+
+
+responses:
+  utter_ask_menu_pembayaran:
+    - text: "Silakan pilih salah satu opsi pembayaran / keuangan:"
+      buttons:
+        - title: "Prosedur Pembayaran"
+          payload: "Prosedur Pembayaran"
+        - title: "Persyaratan Pembayaran"
+          payload: "Persyaratan Pembayaran"
+        - title: "Transaksi Pembayaran"
+          payload: "Transaksi Pembayaran"
+        - title: "Hasil Pembayaran"
+          payload: "Hasil Pembayaran"
+
+  utter_ask_menu_pembayaran_confirmation:
+    - text: "Anda memilih opsi: {menu_pembayaran}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_pembayaran_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi pembayaran."
+
+  utter_menu_pembayaran_ok:
+    - text: "Anda telah memilih opsi pembayaran: {menu_pembayaran}."
+
+  utter_answer_prosedur_pembayaran:
+    - text: |
+        PROSEDUR PEMBAYARAN BIAYA PENDIDIKAN / REGISTRASI
+        1. Login ke portal SPMB Trisakti untuk melihat rincian biaya registrasi ulang dan nomor Virtual Account (VA) Anda.
+        2. Pembayaran dapat dilakukan melalui transfer bank (ATM, m-Banking, atau teller) menggunakan nomor VA tersebut.
+        3. Konfirmasi pembayaran akan terjadi secara otomatis di sistem portal dalam waktu maksimal 1x24 jam setelah pembayaran sukses dilakukan.
+
+  utter_answer_persyaratan_pembayaran:
+    - text: |
+        PERSYARATAN PEMBAYARAN BIAYA KULIAH
+        1. Memiliki nomor Virtual Account resmi dari Universitas Trisakti.
+        2. Melakukan pembayaran sejumlah tagihan yang tertera pada rincian skema keuangan Anda (tidak kurang dan tidak lebih).
+        3. Simpan struk/bukti transfer pembayaran sebagai arsip pribadi.
+
+  utter_answer_transaksi_pembayaran:
+    - text: "Silakan lakukan pembayaran biaya pendidikan Anda melalui Virtual Account yang tertera di portal."
+
+  utter_answer_hasil_pembayaran:
+    - text: "Pembayaran Anda telah diterima dan diverifikasi oleh sistem keuangan Universitas Trisakti."
+
+  utter_answer_error_pembayaran:
+    - text: "Maaf, terjadi kesalahan pada menu pembayaran. Silakan coba lagi."

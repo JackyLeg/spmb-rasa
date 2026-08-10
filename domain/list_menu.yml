@@ -1,0 +1,72 @@
+version: '3.1'
+
+slots:
+  list_menu:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Pendaftaran
+      - Kartu Ujian
+      - Hasil Seleksi
+      - Perjanjian
+      - Pembayaran / Keuangan
+      - Undur Diri
+      - Pindah Prodi
+      - Diskon Alumni
+      - Penyetaraan
+      - Reservasi Pemeriksaan Kesehatan
+    mappings:
+      - type: custom
+
+  list_menu_not_login:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Info Jadwal Seleksi
+      - Info Skema Keuangan
+      - Info Kelengkapan Dokumen Pendaftaran
+      - Info Kelengkapan Dokumen Registrasi
+    mappings:
+      - type: custom
+
+
+responses:
+  utter_ask_list_menu_spmb:
+    - text: 'Silakan pilih salah satu opsi menu SPMB berikut:'
+      buttons:
+        - title: "Pendaftaran"
+          payload: "Pendaftaran"
+        - title: "Kartu Ujian"
+          payload: "Kartu Ujian"
+        - title: "Hasil Seleksi"
+          payload: "Hasil Seleksi"
+        - title: "Perjanjian"
+          payload: "Perjanjian"
+        - title: "Pembayaran / Keuangan"
+          payload: "Pembayaran / Keuangan"
+        - title: "Undur Diri"
+          payload: "Undur Diri"
+        - title: "Pindah Prodi"
+          payload: "Pindah Prodi"
+        - title: "Diskon Alumni"
+          payload: "Diskon Alumni"
+        - title: "Penyetaraan"
+          payload: "Penyetaraan"
+        - title: "Reservasi Pemeriksaan Kesehatan"
+          payload: "Reservasi Pemeriksaan Kesehatan"
+
+  utter_ask_list_menu_not_login:
+    - text: 'Berikut adalah menu informasi seleksi masuk (tanpa login):'
+      buttons:
+        - title: "Info Jadwal Seleksi"
+          payload: "Info Jadwal Seleksi"
+        - title: "Info Skema Keuangan"
+          payload: "Info Skema Keuangan"
+        - title: "Info Kelengkapan Dokumen Pendaftaran"
+          payload: "Info Kelengkapan Dokumen Pendaftaran"
+        - title: "Info Kelengkapan Dokumen Registrasi"
+          payload: "Info Kelengkapan Dokumen Registrasi"
+
+  utter_answer_error_list_menu:
+    - text: "Maaf, pilihan tidak valid. Silakan pilih dari menu yang tersedia."
+

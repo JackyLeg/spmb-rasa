@@ -1,0 +1,13 @@
+version: "3.1"
+
+actions:
+  - action_info_skema_keuangan
+
+responses:
+  utter_info_skema_keuangan:
+    - text: |
+        INFORMASI SKEMA KEUANGAN SPMB
+        Biaya pendaftaran dan kuliah ditentukan berdasarkan program studi dan jalur masuk pilihan Anda:
+        1. Biaya Pendaftaran: Rp300.000 - Rp750.000 (tergantung pilihan rumpun Saintek/Soshum).
+        2. Biaya Kuliah Semester 1: Terdiri dari Sumbangan Pengembangan Pendidikan (SPP) dan Biaya Penyelenggaraan Pendidikan (BPP) SKS.
+        3. Universitas Trisakti menyediakan opsi cicilan biaya kuliah selama semester pertama berjalan.

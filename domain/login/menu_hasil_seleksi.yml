@@ -1,0 +1,88 @@
+version: "3.1"
+
+actions:
+  - action_menu_hasil_seleksi
+
+slots:
+  menu_hasil_seleksi:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Hasil Seleksi
+      - Persyaratan Hasil Seleksi
+      - Hasil Hasil Seleksi
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_hasil_seleksi_form
+            requested_slot: menu_hasil_seleksi
+
+  menu_hasil_seleksi_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_hasil_seleksi_form
+            requested_slot: menu_hasil_seleksi_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_hasil_seleksi_form
+            requested_slot: menu_hasil_seleksi_confirmation
+
+forms:
+  menu_hasil_seleksi_form:
+    required_slots:
+      - menu_hasil_seleksi
+      - menu_hasil_seleksi_confirmation
+
+
+responses:
+  utter_ask_menu_hasil_seleksi:
+    - text: "Silakan pilih salah satu opsi hasil seleksi:"
+      buttons:
+        - title: "Prosedur Hasil Seleksi"
+          payload: "Prosedur Hasil Seleksi"
+        - title: "Persyaratan Hasil Seleksi"
+          payload: "Persyaratan Hasil Seleksi"
+        - title: "Hasil Hasil Seleksi"
+          payload: "Hasil Hasil Seleksi"
+
+  utter_ask_menu_hasil_seleksi_confirmation:
+    - text: "Anda memilih opsi: {menu_hasil_seleksi}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_hasil_seleksi_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi hasil seleksi."
+
+  utter_menu_hasil_seleksi_ok:
+    - text: "Anda telah memilih opsi hasil seleksi: {menu_hasil_seleksi}."
+
+  utter_answer_prosedur_hasil_seleksi:
+    - text: |
+        PROSEDUR MELIHAT PENGUMUMAN HASIL SELEKSI
+        1. Pengumuman hasil seleksi dipublikasikan sesuai dengan tanggal yang telah dijadwalkan pada masing-masing gelombang.
+        2. Buka portal pengumuman SPMB Universitas Trisakti.
+        3. Masukkan nomor pendaftaran atau email akun Anda.
+        4. Sistem akan menampilkan keputusan kelulusan Anda pada prodi pilihan.
+
+  utter_answer_persyaratan_hasil_seleksi:
+    - text: |
+        PERSYARATAN PENGUMUMAN HASIL SELEKSI
+        1. Ujian seleksi masuk telah selesai dilaksanakan (bagi jalur ujian tertulis/ujian keterampilan).
+        2. Hasil verifikasi rapor dan berkas prestasi telah dirampungkan (bagi jalur prestasi).
+        3. Nilai tes seleksi telah diverifikasi oleh panitia SPMB.
+
+  utter_answer_hasil_hasil_seleksi:
+    - text: "Hasil seleksi pendaftaran Anda telah diterbitkan. Silakan cek status kelulusan di portal SPMB."
+
+  utter_answer_error_hasil_seleksi:
+    - text: "Maaf, terjadi kesalahan pada menu hasil seleksi. Silakan coba lagi."

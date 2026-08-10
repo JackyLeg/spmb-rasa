@@ -1,0 +1,96 @@
+version: "3.1"
+
+actions:
+  - action_menu_diskon_alumni
+
+slots:
+  menu_diskon_alumni:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Diskon Alumni
+      - Persyaratan Diskon Alumni
+      - Transaksi Diskon Alumni
+      - Hasil Diskon Alumni
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_diskon_alumni_form
+            requested_slot: menu_diskon_alumni
+
+  menu_diskon_alumni_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_diskon_alumni_form
+            requested_slot: menu_diskon_alumni_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_diskon_alumni_form
+            requested_slot: menu_diskon_alumni_confirmation
+
+forms:
+  menu_diskon_alumni_form:
+    required_slots:
+      - menu_diskon_alumni
+      - menu_diskon_alumni_confirmation
+
+
+responses:
+  utter_ask_menu_diskon_alumni:
+    - text: "Silakan pilih salah satu opsi diskon alumni:"
+      buttons:
+        - title: "Prosedur Diskon Alumni"
+          payload: "Prosedur Diskon Alumni"
+        - title: "Persyaratan Diskon Alumni"
+          payload: "Persyaratan Diskon Alumni"
+        - title: "Transaksi Diskon Alumni"
+          payload: "Transaksi Diskon Alumni"
+        - title: "Hasil Diskon Alumni"
+          payload: "Hasil Diskon Alumni"
+
+  utter_ask_menu_diskon_alumni_confirmation:
+    - text: "Anda memilih opsi: {menu_diskon_alumni}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_diskon_alumni_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi diskon alumni."
+
+  utter_menu_diskon_alumni_ok:
+    - text: "Anda telah memilih opsi diskon alumni: {menu_diskon_alumni}."
+
+  utter_answer_prosedur_diskon_alumni:
+    - text: |
+        PROSEDUR PENGAJUAN DISKON BIAYA KULIAH JALUR ALUMNI/KELUARGA ALUMNI
+        1. Login ke portal SPMB Trisakti Anda.
+        2. Pilih menu pengajuan potongan biaya pendidikan (Diskon Alumni).
+        3. Isi data hubungan kekeluargaan dengan alumni Universitas Trisakti.
+        4. Unggah dokumen bukti alumni (Ijazah/Kartu Alumni/KK).
+        5. Tim administrasi keuangan akan memverifikasi keabsahan data untuk persetujuan pemotongan biaya.
+
+  utter_answer_persyaratan_diskon_alumni:
+    - text: |
+        PERSYARATAN DISKON ALUMNI
+        1. Pendaftar adalah anak kandung atau saudara kandung dari alumni Universitas Trisakti.
+        2. Fotokopi Ijazah Universitas Trisakti milik orang tua/saudara kandung yang bersangkutan.
+        3. Kartu Keluarga (KK) asli sebagai bukti hubungan kekeluargaan.
+        4. Kartu Anggota Ikatan Alumni Trisakti (jika ada).
+
+  utter_answer_transaksi_diskon_alumni:
+    - text: "Silakan kirimkan dokumen bukti kekeluargaan alumni Anda untuk kami verifikasi potongan biaya."
+
+  utter_answer_hasil_diskon_alumni:
+    - text: "Pengajuan diskon biaya pendidikan jalur alumni Anda sedang diverifikasi oleh biro keuangan."
+
+  utter_answer_error_diskon_alumni:
+    - text: "Maaf, terjadi kesalahan pada menu diskon alumni. Silakan coba lagi."

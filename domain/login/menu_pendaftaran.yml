@@ -1,0 +1,97 @@
+version: "3.1"
+
+actions:
+  - action_menu_pendaftaran
+
+slots:
+  menu_pendaftaran:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Pendaftaran
+      - Persyaratan Pendaftaran
+      - Transaksi Pendaftaran
+      - Hasil Pendaftaran
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_pendaftaran_form
+            requested_slot: menu_pendaftaran
+
+  menu_pendaftaran_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_pendaftaran_form
+            requested_slot: menu_pendaftaran_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_pendaftaran_form
+            requested_slot: menu_pendaftaran_confirmation
+
+forms:
+  menu_pendaftaran_form:
+    required_slots:
+      - menu_pendaftaran
+      - menu_pendaftaran_confirmation
+
+
+responses:
+  utter_ask_menu_pendaftaran:
+    - text: "Silakan pilih salah satu opsi pendaftaran:"
+      buttons:
+        - title: "Prosedur Pendaftaran"
+          payload: "Prosedur Pendaftaran"
+        - title: "Persyaratan Pendaftaran"
+          payload: "Persyaratan Pendaftaran"
+        - title: "Transaksi Pendaftaran"
+          payload: "Transaksi Pendaftaran"
+        - title: "Hasil Pendaftaran"
+          payload: "Hasil Pendaftaran"
+
+  utter_ask_menu_pendaftaran_confirmation:
+    - text: "Anda memilih opsi: {menu_pendaftaran}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_pendaftaran_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi pendaftaran."
+
+  utter_menu_pendaftaran_ok:
+    - text: "Anda telah memilih opsi pendaftaran: {menu_pendaftaran}."
+
+  utter_answer_prosedur_pendaftaran:
+    - text: |
+        PROSEDUR PENDAFTARAN SPMB UNIVERSITAS TRISAKTI
+        1. Buka portal pendaftaran online SPMB Trisakti.
+        2. Buat akun pendaftaran baru menggunakan email aktif.
+        3. Isi formulir data diri, data sekolah asal, dan unggah berkas yang diperlukan.
+        4. Lakukan pembayaran biaya pendaftaran untuk mendapatkan nomor seleksi.
+        5. Pilih program studi yang diinginkan.
+
+  utter_answer_persyaratan_pendaftaran:
+    - text: |
+        PERSYARATAN PENDAFTARAN SPMB
+        1. Memiliki ijazah SMA/SMK/MA/sederajat yang telah dilegalisir.
+        2. Surat Keterangan Lulus (jika ijazah belum terbit).
+        3. Pas foto terbaru ukuran 3x4 dan 4x6 latar belakang merah.
+        4. Kartu Keluarga (KK) dan KTP/Kartu Pelajar.
+        5. Nilai rapor semester 1-5 (khusus jalur prestasi/tanpa tes).
+
+  utter_answer_transaksi_pendaftaran:
+    - text: "Silakan selesaikan pengisian formulir pendaftaran dan kirimkan berkas pendaftaran Anda."
+
+  utter_answer_hasil_pendaftaran:
+    - text: "Status verifikasi berkas pendaftaran Anda sedang diproses oleh tim SPMB."
+
+  utter_answer_error_pendaftaran:
+    - text: "Maaf, terjadi kesalahan pada menu pendaftaran. Silakan coba lagi."

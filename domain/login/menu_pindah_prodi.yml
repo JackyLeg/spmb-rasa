@@ -1,0 +1,95 @@
+version: "3.1"
+
+actions:
+  - action_menu_pindah_prodi
+
+slots:
+  menu_pindah_prodi:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Pindah Prodi
+      - Persyaratan Pindah Prodi
+      - Transaksi Pindah Prodi
+      - Hasil Pindah Prodi
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_pindah_prodi_form
+            requested_slot: menu_pindah_prodi
+
+  menu_pindah_prodi_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_pindah_prodi_form
+            requested_slot: menu_pindah_prodi_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_pindah_prodi_form
+            requested_slot: menu_pindah_prodi_confirmation
+
+forms:
+  menu_pindah_prodi_form:
+    required_slots:
+      - menu_pindah_prodi
+      - menu_pindah_prodi_confirmation
+
+
+responses:
+  utter_ask_menu_pindah_prodi:
+    - text: "Silakan pilih salah satu opsi pindah prodi:"
+      buttons:
+        - title: "Prosedur Pindah Prodi"
+          payload: "Prosedur Pindah Prodi"
+        - title: "Persyaratan Pindah Prodi"
+          payload: "Persyaratan Pindah Prodi"
+        - title: "Transaksi Pindah Prodi"
+          payload: "Transaksi Pindah Prodi"
+        - title: "Hasil Pindah Prodi"
+          payload: "Hasil Pindah Prodi"
+
+  utter_ask_menu_pindah_prodi_confirmation:
+    - text: "Anda memilih opsi: {menu_pindah_prodi}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_pindah_prodi_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi pindah prodi."
+
+  utter_menu_pindah_prodi_ok:
+    - text: "Anda telah memilih opsi pindah prodi: {menu_pindah_prodi}."
+
+  utter_answer_prosedur_pindah_prodi:
+    - text: |
+        PROSEDUR PINDAH PROGRAM STUDI (SEBELUM KULIAH DIMULAI)
+        1. Login ke portal SPMB Trisakti Anda.
+        2. Masuk ke halaman pengajuan perubahan program studi.
+        3. Isi formulir permohonan pindah program studi dengan memilih prodi baru yang dituju.
+        4. Bayar biaya administrasi perpindahan prodi jika diperlukan.
+        5. Tunggu proses seleksi internal atau verifikasi kecocokan nilai ujian seleksi Anda dengan batas minimal (passing grade) prodi baru.
+
+  utter_answer_persyaratan_pindah_prodi:
+    - text: |
+        PERSYARATAN PINDAH PRODI
+        1. Masih dalam masa periode pendaftaran SPMB dan perkuliahan semester ganjil belum dimulai.
+        2. Nilai ujian masuk SPMB Anda memenuhi syarat passing grade program studi baru yang dituju.
+        3. Daya tampung/kuota pada program studi baru masih tersedia.
+
+  utter_answer_transaksi_pindah_prodi:
+    - text: "Silakan kirimkan formulir permohonan pindah program studi Anda untuk kami verifikasi."
+
+  utter_answer_hasil_pindah_prodi:
+    - text: "Permohonan perpindahan program studi Anda sedang diproses oleh tim panitia SPMB."
+
+  utter_answer_error_pindah_prodi:
+    - text: "Maaf, terjadi kesalahan pada menu pindah prodi. Silakan coba lagi."

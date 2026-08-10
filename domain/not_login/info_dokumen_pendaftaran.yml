@@ -1,0 +1,14 @@
+version: "3.1"
+
+actions:
+  - action_info_dokumen_pendaftaran
+
+responses:
+  utter_info_dokumen_pendaftaran:
+    - text: |
+        KELENGKAPAN DOKUMEN PENDAFTARAN SPMB
+        Untuk melakukan pendaftaran, siapkan dokumen digital (scan) berikut:
+        1. Fotokopi Rapor Semester 1-5 (khusus Jalur Rapor/Prestasi).
+        2. Fotokopi Kartu Keluarga (KK) dan KTP/Kartu Pelajar.
+        3. Pas foto berwarna ukuran 3x4 (latar belakang merah/biru).
+        4. Surat Keterangan Tidak Buta Warna (khusus prodi Kedokteran, Kedokteran Gigi, Seni Rupa, dan Teknik Kimia).

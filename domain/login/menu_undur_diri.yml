@@ -1,0 +1,94 @@
+version: "3.1"
+
+actions:
+  - action_menu_undur_diri
+
+slots:
+  menu_undur_diri:
+    type: categorical
+    influence_conversation: true
+    values:
+      - Prosedur Undur Diri
+      - Persyaratan Undur Diri
+      - Transaksi Undur Diri
+      - Hasil Undur Diri
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: menu_undur_diri_form
+            requested_slot: menu_undur_diri
+
+  menu_undur_diri_confirmation:
+    type: bool
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+          - active_loop: menu_undur_diri_form
+            requested_slot: menu_undur_diri_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+          - active_loop: menu_undur_diri_form
+            requested_slot: menu_undur_diri_confirmation
+
+forms:
+  menu_undur_diri_form:
+    required_slots:
+      - menu_undur_diri
+      - menu_undur_diri_confirmation
+
+
+responses:
+  utter_ask_menu_undur_diri:
+    - text: "Silakan pilih salah satu opsi undur diri:"
+      buttons:
+        - title: "Prosedur Undur Diri"
+          payload: "Prosedur Undur Diri"
+        - title: "Persyaratan Undur Diri"
+          payload: "Persyaratan Undur Diri"
+        - title: "Transaksi Undur Diri"
+          payload: "Transaksi Undur Diri"
+        - title: "Hasil Undur Diri"
+          payload: "Hasil Undur Diri"
+
+  utter_ask_menu_undur_diri_confirmation:
+    - text: "Anda memilih opsi: {menu_undur_diri}. Apakah ini benar?"
+      buttons:
+        - title: "Ya"
+          payload: "Ya"
+        - title: "Tidak"
+          payload: "Tidak"
+
+  utter_menu_undur_diri_cancelled:
+    - text: "Pilihan dibatalkan. Silakan pilih kembali opsi undur diri."
+
+  utter_menu_undur_diri_ok:
+    - text: "Anda telah memilih opsi undur diri: {menu_undur_diri}."
+
+  utter_answer_prosedur_undur_diri:
+    - text: |
+        PROSEDUR UNDUR DIRI CALON MAHASISWA BARU
+        1. Calon mahasiswa mengajukan permohonan undur diri resmi secara tertulis ke panitia SPMB.
+        2. Isi formulir pengajuan undur diri yang tersedia di portal SPMB.
+        3. Unggah surat permohonan bermeterai, bukti tanda terima pembayaran, dan fotokopi KTP/KK.
+        4. Proses pengembalian biaya pendidikan (sesuai ketentuan pengembalian yang berlaku) membutuhkan waktu verifikasi maksimal 14 hari kerja.
+
+  utter_answer_persyaratan_undur_diri:
+    - text: |
+        PERSYARATAN UNDUR DIRI
+        1. Surat Permohonan Undur Diri yang ditandatangani mahasiswa dan orang tua di atas meterai Rp10.000.
+        2. Melampirkan surat bukti kelulusan di Perguruan Tinggi Negeri (PTN) jalur SNBP/SNBT (jika mengundurkan diri karena diterima di PTN).
+        3. Kwitansi atau bukti pembayaran biaya kuliah asli yang telah dilakukan ke Universitas Trisakti.
+
+  utter_answer_transaksi_undur_diri:
+    - text: "Silakan lengkapi berkas dan formulir pengajuan undur diri Anda untuk kami proses."
+
+  utter_answer_hasil_undur_diri:
+    - text: "Permohonan pengunduran diri Anda sedang diproses oleh admin akademik."
+
+  utter_answer_error_undur_diri:
+    - text: "Maaf, terjadi kesalahan pada menu undur diri. Silakan coba lagi."

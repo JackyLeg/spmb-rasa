@@ -1,0 +1,14 @@
+version: "3.1"
+
+actions:
+  - action_info_dokumen_registrasi
+
+responses:
+  utter_info_dokumen_registrasi:
+    - text: |
+        KELENGKAPAN DOKUMEN REGISTRASI / DAFTAR ULANG
+        Calon mahasiswa baru yang dinyatakan LULUS wajib mengunggah:
+        1. Bukti Pembayaran Lunas Biaya Pendidikan Semester 1.
+        2. Ijazah atau Surat Keterangan Lulus (SKL) SMA/SMK/MA legalisir.
+        3. Surat Pernyataan Mahasiswa Baru yang ditandatangani di atas meterai Rp10.000.
+        4. Scan dokumen kesehatan dan tes bebas narkoba dari rumah sakit/klinik resmi.

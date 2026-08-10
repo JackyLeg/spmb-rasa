@@ -1,0 +1,80 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - ask_menu
+  - ask_capabilities
+  - ask_introduction
+  - bot_challenge
+  - menu_pendaftaran
+  - menu_kartu_ujian
+  - menu_hasil_seleksi
+  - menu_perjanjian
+  - menu_pembayaran
+  - menu_undur_diri
+  - menu_pindah_prodi
+  - menu_diskon_alumni
+  - menu_penyetaraan
+  - menu_reservasi_kesehatan
+  - info_jadwal_seleksi
+  - info_skema_keuangan
+  - info_dokumen_pendaftaran
+  - info_dokumen_registrasi
+
+actions:
+  - action_check_login_state
+  - action_show_menu
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: greet_form
+            requested_slot: name
+
+  login_state:
+    type: categorical
+    influence_conversation: true
+    values:
+      - login
+      - not_login
+    mappings:
+      - type: custom
+
+  return_value:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+forms:
+  greet_form:
+    required_slots:
+      - name
+
+
+responses:
+  utter_ask_name:
+    - text: "Siapa nama Anda?"
+    
+  utter_greet:
+    - text: "Halo, {name}! Bagaimana saya bisa membantu Anda hari ini di portal SPMB?"
+
+  utter_provide_info:
+    - text: |
+        Saya dapat membantu memberikan informasi terkait Seleksi Penerimaan Mahasiswa Baru (SPMB) Universitas Trisakti.
+        Anda dapat bertanya tentang:
+        - Pendaftaran, Kartu Ujian, Hasil Seleksi
+        - Perjanjian, Pembayaran/Keuangan
+        - Undur Diri, Pindah Prodi, Penyetaraan
+        - Diskon Alumni, Reservasi Pemeriksaan Kesehatan
+        Atau ketik "menu" untuk melihat daftar menu lengkap.
+
+  utter_imabot:
+    - text: "Saya adalah SPMBBot, asisten virtual Anda untuk proses Penerimaan Mahasiswa Baru Universitas Trisakti."
