@@ -27,7 +27,7 @@ class MenuUndurDiri(Action):
             ]
 
         dispatcher.utter_message(response = "utter_menu_undur_diri_ok")
-        dispatcher.utter_message(json_message={"context": "undur_diri"})
+        dispatcher.utter_message(json_message={"context": "pembatalan_pendaftaran"})
         
         def fetch_peraturan_api(sender: str, context_name: str) -> bool:
             try:
@@ -51,20 +51,19 @@ class MenuUndurDiri(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Undur Diri":
-                if not fetch_peraturan_api(tracker.sender_id, "undur_diri_prosedur"):
-                    dispatcher.utter_message(response="utter_answer_prosedur_undur_diri")
-            case "Persyaratan Undur Diri":
-                if not fetch_peraturan_api(tracker.sender_id, "undur_diri_persyaratan"):
-                    dispatcher.utter_message(response="utter_answer_persyaratan_undur_diri")
-            case "Transaksi Undur Diri":
-                dispatcher.utter_message(response="utter_answer_transaksi_undur_diri")
-            case "Hasil Undur Diri":
-                if not fetch_peraturan_api(tracker.sender_id, "undur_diri_hasil"):
-                    dispatcher.utter_message(response="utter_answer_hasil_undur_diri")
-            case _:
-                pass
+        if pilihan_menu in ["Prosedur Undur Diri", "Prosedur Pembatalan Pendaftaran"]:
+            if not (fetch_peraturan_api(tracker.sender_id, "pembatalan_pendaftaran_prosedur") or fetch_peraturan_api(tracker.sender_id, "undur_diri_prosedur")):
+                dispatcher.utter_message(response="utter_answer_prosedur_undur_diri")
+        elif pilihan_menu in ["Persyaratan Undur Diri", "Persyaratan Pembatalan Pendaftaran"]:
+            if not (fetch_peraturan_api(tracker.sender_id, "pembatalan_pendaftaran_persyaratan") or fetch_peraturan_api(tracker.sender_id, "undur_diri_persyaratan")):
+                dispatcher.utter_message(response="utter_answer_persyaratan_undur_diri")
+        elif pilihan_menu in ["Transaksi Undur Diri", "Transaksi Pembatalan Pendaftaran"]:
+            dispatcher.utter_message(response="utter_answer_transaksi_undur_diri")
+        elif pilihan_menu in ["Hasil Undur Diri", "Hasil Pembatalan Pendaftaran"]:
+            if not (fetch_peraturan_api(tracker.sender_id, "pembatalan_pendaftaran_hasil") or fetch_peraturan_api(tracker.sender_id, "undur_diri_hasil")):
+                dispatcher.utter_message(response="utter_answer_hasil_undur_diri")
+        else:
+            pass
 
         return [
             SlotSet("menu_undur_diri", None),

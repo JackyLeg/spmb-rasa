@@ -51,19 +51,18 @@ class MenuPembayaran(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Pembayaran":
+        if pilihan_menu == "Prosedur Pembayaran":
                 if not fetch_peraturan_api(tracker.sender_id, "pembayaran_prosedur"):
                     dispatcher.utter_message(response="utter_answer_prosedur_pembayaran")
-            case "Persyaratan Pembayaran":
+        elif pilihan_menu == "Persyaratan Pembayaran":
                 if not fetch_peraturan_api(tracker.sender_id, "pembayaran_persyaratan"):
                     dispatcher.utter_message(response="utter_answer_persyaratan_pembayaran")
-            case "Transaksi Pembayaran":
+        elif pilihan_menu == "Transaksi Pembayaran":
                 dispatcher.utter_message(response="utter_answer_transaksi_pembayaran")
-            case "Hasil Pembayaran":
+        elif pilihan_menu == "Hasil Pembayaran":
                 if not fetch_peraturan_api(tracker.sender_id, "pembayaran_hasil"):
                     dispatcher.utter_message(response="utter_answer_hasil_pembayaran")
-            case _:
+        else:
                 pass
 
         return [

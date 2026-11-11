@@ -2,4 +2,4 @@
 
 # Server which runs your custom actions.
 action_endpoint:
-  url: "http://action_server:6055/webhook"
+  url: "http://action_server:5055/webhook"

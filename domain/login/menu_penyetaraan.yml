@@ -40,7 +40,6 @@ forms:
       - menu_penyetaraan
       - menu_penyetaraan_confirmation
 
-
 responses:
   utter_ask_menu_penyetaraan:
     - text: "Silakan pilih salah satu opsi penyetaraan:"
@@ -69,19 +68,20 @@ responses:
   utter_answer_prosedur_penyetaraan:
     - text: |
         PROSEDUR PENYETARAAN MATA KULIAH / NILAI (BAGI PINDAHAN/LANJUT JENIS)
-        1. Login ke portal SPMB Trisakti Anda.
-        2. Pilih menu pengajuan penyetaraan mata kuliah.
-        3. Isi data asal universitas dan unggah transkrip nilai resmi yang diperoleh sebelumnya.
-        4. Program studi tujuan akan melakukan penilaian konversi mata kuliah yang diakui.
-        5. Hasil penyetaraan nilai konversi akan diterbitkan dalam bentuk Surat Keterangan Penyetaraan.
+        1. Daftar online di https://spmb.trisakti.ac.id/ pada jalur Pindahan atau RPL Transfer Kredit (RPL-TK).
+        2. Bayar biaya seleksi/penyetaraan sebesar Rp750.000 ke Virtual Account Bank BNI.
+        3. Isi permohonan transfer mata kuliah, nilai, dan unggah dokumen persyaratan akademik/administrasi di portal.
+        4. Tim Asesor RPL / Program Studi tujuan melakukan verifikasi dan penyetaraan konversi mata kuliah yang diakui.
+        5. Hasil konversi diterbitkan dan sisa masa studi dihitung menggunakan rumus sisa studi resmi.
 
   utter_answer_persyaratan_penyetaraan:
     - text: |
         PERSYARATAN PENYETARAAN
-        1. Transkrip nilai resmi akademik dari perguruan tinggi asal.
-        2. Surat Keterangan Pindah atau surat pengantar resmi dari kampus asal.
-        3. Silabus mata kuliah yang pernah ditempuh di kampus asal (jika diminta oleh program studi tujuan).
-        4. Terdaftar secara resmi di PDDikti (Pangkalan Data Pendidikan Tinggi).
+        1. IPK minimal 2,75 dari program studi asal (untuk jalur RPL-TK alih jenjang) atau IPK minimal 2,50 (untuk jalur Pindahan).
+        2. Berasal dari program studi yang terakreditasi minimal B/Baik Sekali dan terdaftar di PDDikti (dibuktikan dengan tangkapan layar/screenshot pencarian nama di https://pddikti.kemdiktisaintek.go.id).
+        3. Jumlah SKS dari kampus asal paling sedikit adalah n x 12 SKS (di mana n adalah semester yang telah ditempuh) tanpa nilai D dan E.
+        4. Batas maksimal SKS yang dapat diakui adalah 85% dari total SKS (maksimal 100 SKS) jika akreditasi prodi asal Sama atau Lebih Tinggi; atau maksimal 75% (maksimal 90 SKS) jika akreditasi prodi asal Lebih Rendah Satu Tingkat.
+        5. Surat Keterangan Tidak Buta Warna (bagi prodi tertentu di lingkup FK, FKG, FSRD, FTKE, FALTL, FTSP, dan FTI [Teknik Mesin, Teknik Elektro, Teknik Industri]).
 
   utter_answer_hasil_penyetaraan:
     - text: "Hasil konversi penyetaraan nilai mata kuliah Anda telah selesai dinilai oleh program studi."

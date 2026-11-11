@@ -1,0 +1,25 @@
+mkdir spmb-rasa
+cd spmb-rasa
+
+git init
+
+git remote add origin https://github.com/JackyLeg/spmb-rasa.git
+
+git fetch origin
+
+git reset --hard origin/main
+
+git clean -fd
+
+# Validate training data & domain
+docker run --rm -v "$(pwd)":/app rasa/rasa:3.6.21-full data validate --domain domain/ --data data/
+
+# Train model (Rasa Open Source - no license needed)
+docker run --rm -v "$(pwd)":/app rasa/rasa:3.6.21-full train --domain domain/ --data data/
+
+# Run assistant & action server in background
+docker compose up -d
+
+# Check service logs
+docker compose logs -f
+

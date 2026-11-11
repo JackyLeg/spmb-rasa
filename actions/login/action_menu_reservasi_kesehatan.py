@@ -51,19 +51,18 @@ class MenuReservasiKesehatan(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Reservasi Kesehatan":
+        if pilihan_menu == "Prosedur Reservasi Kesehatan":
                 if not fetch_peraturan_api(tracker.sender_id, "reservasi_kesehatan_prosedur"):
                     dispatcher.utter_message(response="utter_answer_prosedur_reservasi_kesehatan")
-            case "Persyaratan Reservasi Kesehatan":
+        elif pilihan_menu == "Persyaratan Reservasi Kesehatan":
                 if not fetch_peraturan_api(tracker.sender_id, "reservasi_kesehatan_persyaratan"):
                     dispatcher.utter_message(response="utter_answer_persyaratan_reservasi_kesehatan")
-            case "Transaksi Reservasi Kesehatan":
+        elif pilihan_menu == "Transaksi Reservasi Kesehatan":
                 dispatcher.utter_message(response="utter_answer_transaksi_reservasi_kesehatan")
-            case "Hasil Reservasi Kesehatan":
+        elif pilihan_menu == "Hasil Reservasi Kesehatan":
                 if not fetch_peraturan_api(tracker.sender_id, "reservasi_kesehatan_hasil"):
                     dispatcher.utter_message(response="utter_answer_hasil_reservasi_kesehatan")
-            case _:
+        else:
                 pass
 
         return [

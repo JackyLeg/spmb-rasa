@@ -51,19 +51,18 @@ class MenuPindahProdi(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Pindah Prodi":
+        if pilihan_menu == "Prosedur Pindah Prodi":
                 if not fetch_peraturan_api(tracker.sender_id, "pindah_prodi_prosedur"):
                     dispatcher.utter_message(response="utter_answer_prosedur_pindah_prodi")
-            case "Persyaratan Pindah Prodi":
+        elif pilihan_menu == "Persyaratan Pindah Prodi":
                 if not fetch_peraturan_api(tracker.sender_id, "pindah_prodi_persyaratan"):
                     dispatcher.utter_message(response="utter_answer_persyaratan_pindah_prodi")
-            case "Transaksi Pindah Prodi":
+        elif pilihan_menu == "Transaksi Pindah Prodi":
                 dispatcher.utter_message(response="utter_answer_transaksi_pindah_prodi")
-            case "Hasil Pindah Prodi":
+        elif pilihan_menu == "Hasil Pindah Prodi":
                 if not fetch_peraturan_api(tracker.sender_id, "pindah_prodi_hasil"):
                     dispatcher.utter_message(response="utter_answer_hasil_pindah_prodi")
-            case _:
+        else:
                 pass
 
         return [

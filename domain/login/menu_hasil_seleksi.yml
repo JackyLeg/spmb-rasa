@@ -40,7 +40,6 @@ forms:
       - menu_hasil_seleksi
       - menu_hasil_seleksi_confirmation
 
-
 responses:
   utter_ask_menu_hasil_seleksi:
     - text: "Silakan pilih salah satu opsi hasil seleksi:"
@@ -69,17 +68,17 @@ responses:
   utter_answer_prosedur_hasil_seleksi:
     - text: |
         PROSEDUR MELIHAT PENGUMUMAN HASIL SELEKSI
-        1. Pengumuman hasil seleksi dipublikasikan sesuai dengan tanggal yang telah dijadwalkan pada masing-masing gelombang.
-        2. Buka portal pengumuman SPMB Universitas Trisakti.
-        3. Masukkan nomor pendaftaran atau email akun Anda.
-        4. Sistem akan menampilkan keputusan kelulusan Anda pada prodi pilihan.
+        1. Pengumuman hasil seleksi dipublikasikan sesuai jadwal gelombang yang diikuti.
+        2. Login ke portal SPMB Trisakti pada hari pengumuman yang ditentukan.
+        3. Lihat status kelulusan Anda pada menu dashboard masing-masing.
 
   utter_answer_persyaratan_hasil_seleksi:
     - text: |
         PERSYARATAN PENGUMUMAN HASIL SELEKSI
-        1. Ujian seleksi masuk telah selesai dilaksanakan (bagi jalur ujian tertulis/ujian keterampilan).
-        2. Hasil verifikasi rapor dan berkas prestasi telah dirampungkan (bagi jalur prestasi).
-        3. Nilai tes seleksi telah diverifikasi oleh panitia SPMB.
+        1. Pengumuman hasil seleksi USM reguler Non-FK/FKG diumumkan pada hari Senin setelah pelaksanaan ujian (sesuai periode).
+        2. Pengumuman hasil seleksi USM FK/FKG diumumkan pada hari Senin terjadwal (sekitar 8-9 hari setelah ujian).
+        3. Hasil seleksi jalur Rapor/PSSB, Portofolio, dan UTBK Non-FK/FKG diumumkan secara berkala setiap hari Senin (atau Senin, Rabu, Jumat pada periode tertentu).
+        4. Telah menyelesaikan seluruh rangkaian tes seleksi masuk atau verifikasi berkas prestasi.
 
   utter_answer_hasil_hasil_seleksi:
     - text: "Hasil seleksi pendaftaran Anda telah diterbitkan. Silakan cek status kelulusan di portal SPMB."

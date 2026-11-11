@@ -41,7 +41,6 @@ forms:
       - menu_perjanjian
       - menu_perjanjian_confirmation
 
-
 responses:
   utter_ask_menu_perjanjian:
     - text: "Silakan pilih salah satu opsi perjanjian:"
@@ -72,19 +71,18 @@ responses:
   utter_answer_prosedur_perjanjian:
     - text: |
         PROSEDUR PENANDATANGANAN PERJANJIAN MAHASISWA BARU
-        1. Login ke portal SPMB Trisakti.
-        2. Unduh draf Surat Perjanjian Mahasiswa Baru dari dashboard Anda.
-        3. Baca dan pahami hak serta kewajiban sebagai calon mahasiswa baru Universitas Trisakti.
-        4. Tanda tangani dokumen di atas meterai Rp10.000 bersama dengan Orang Tua/Wali.
-        5. Unggah kembali berkas scan surat perjanjian yang telah ditandatangani.
+        1. Login ke portal SPMB Trisakti dan unduh draf Surat Perjanjian Mahasiswa Baru.
+        2. Cetak draf surat perjanjian tersebut secara fisik.
+        3. Baca, pahami, dan tanda tangani surat perjanjian di atas meterai Rp10.000 bersama dengan Orang Tua/Wali (tanda tangan basah).
+        4. Unggah hasil pindaian berwarna (scan) surat perjanjian yang telah ditandatangani tersebut ke portal SPMB menu Kelengkapan Registrasi.
 
   utter_answer_persyaratan_perjanjian:
     - text: |
         PERSYARATAN DOKUMEN PERJANJIAN
-        1. Telah dinyatakan lulus seleksi masuk Universitas Trisakti.
-        2. Surat Perjanjian Mahasiswa Baru asli yang dicetak dari portal.
-        3. Meterai Rp10.000 (1 buah).
-        4. Tanda tangan basah mahasiswa dan orang tua/wali mahasiswa.
+        1. Draf Surat Perjanjian Mahasiswa Baru resmi yang dicetak dari portal SPMB.
+        2. Meterai Rp10.000 sebanyak 1 (satu) buah.
+        3. Tanda tangan basah calon mahasiswa dan orang tua/wali di atas meterai.
+        4. Wajib diunggah oleh semua jalur penerimaan (USM, PSSB, UTBK, Portofolio, Beasiswa, Pindahan/RPL) paling lambat 20 Agustus 2026.
 
   utter_answer_transaksi_perjanjian:
     - text: "Silakan unggah dokumen perjanjian mahasiswa baru yang telah ditandatangani di atas meterai."

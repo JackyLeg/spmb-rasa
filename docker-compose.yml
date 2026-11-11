@@ -2,7 +2,7 @@ services:
   rasa:
     image: rasa/rasa:3.6.21-full
     ports:
-      - "6005:6005"
+      - "6005:5005" # Port 6005 di komputer Anda diteruskan ke 5005 di kontainer
     volumes:
       - ./:/app
     command:
@@ -11,14 +11,12 @@ services:
       - --cors
       - "*"
       - -p
-      - "6005"
+      - "5005" # Disamakan dengan port target di atas
     depends_on:
       - action_server
 
   action_server:
-    build:
-      context: .
-      dockerfile: Dockerfile.actions
+    image: rasa/rasa-sdk:3.6.2
     volumes:
       - ./actions:/app/actions
     command:
@@ -26,6 +24,6 @@ services:
       - --actions
       - actions
       - -p
-      - "6055"
+      - "5055"
     expose:
-      - "6055"
+      - "5055"

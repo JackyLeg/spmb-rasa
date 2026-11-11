@@ -12,6 +12,10 @@ slots:
       - Persyaratan Undur Diri
       - Transaksi Undur Diri
       - Hasil Undur Diri
+      - Prosedur Pembatalan Pendaftaran
+      - Persyaratan Pembatalan Pendaftaran
+      - Transaksi Pembatalan Pendaftaran
+      - Hasil Pembatalan Pendaftaran
     mappings:
       - type: from_text
         conditions:
@@ -40,7 +44,6 @@ forms:
     required_slots:
       - menu_undur_diri
       - menu_undur_diri_confirmation
-
 
 responses:
   utter_ask_menu_undur_diri:
@@ -72,17 +75,24 @@ responses:
   utter_answer_prosedur_undur_diri:
     - text: |
         PROSEDUR UNDUR DIRI CALON MAHASISWA BARU
-        1. Calon mahasiswa mengajukan permohonan undur diri resmi secara tertulis ke panitia SPMB.
-        2. Isi formulir pengajuan undur diri yang tersedia di portal SPMB.
-        3. Unggah surat permohonan bermeterai, bukti tanda terima pembayaran, dan fotokopi KTP/KK.
-        4. Proses pengembalian biaya pendidikan (sesuai ketentuan pengembalian yang berlaku) membutuhkan waktu verifikasi maksimal 14 hari kerja.
+        1. Login ke portal SPMB Trisakti.
+        2. Masuk ke menu "Status Keuangan" dan tekan tab "Payment" untuk memeriksa jumlah pembayaran yang telah dilakukan.
+        3. Pilih menu "Undur Diri".
+        4. Pilih program studi yang akan diundurdirikan, lalu tekan tombol "Apply Quit".
+        5. Isi data rekening pengembalian dana, lengkapi formulir aplikasi undur diri, dan unggah semua dokumen yang diminta.
+        6. Setelah disetujui, calon mahasiswa dapat mengunduh "Bukti Pengajuan Undur Diri". Dana pengembalian ditransfer setelah diverifikasi oleh BAK.
 
   utter_answer_persyaratan_undur_diri:
     - text: |
         PERSYARATAN UNDUR DIRI
-        1. Surat Permohonan Undur Diri yang ditandatangani mahasiswa dan orang tua di atas meterai Rp10.000.
-        2. Melampirkan surat bukti kelulusan di Perguruan Tinggi Negeri (PTN) jalur SNBP/SNBT (jika mengundurkan diri karena diterima di PTN).
-        3. Kwitansi atau bukti pembayaran biaya kuliah asli yang telah dilakukan ke Universitas Trisakti.
+        1. Pengajuan undur diri dilakukan secara daring (online) oleh calon mahasiswa bersangkutan atau orang tua/wali paling lambat tanggal 11 Agustus 2026.
+        2. Pengembalian biaya pendidikan dikenai potongan biaya administrasi sesuai jenjang program/fakultas:
+            - Sarjana Kedokteran (FK): Rp50.000.000
+            - Sarjana Kedokteran Gigi (FKG): Rp25.000.000
+            - Program Magister & Doktor: Rp15.000.000
+            - Program Sarjana lainnya (FH, FEB, FTSP, FTI, FTKE, FALTL, FSRD): Rp10.000.000
+            - Program Diploma: Rp1.000.000
+        3. Pengajuan di luar jadwal dan melebihi batas waktu (setelah 11 Agustus 2026) menyebabkan seluruh biaya pendidikan yang telah dibayarkan tidak dikembalikan dengan alasan apapun.
 
   utter_answer_transaksi_undur_diri:
     - text: "Silakan lengkapi berkas dan formulir pengajuan undur diri Anda untuk kami proses."

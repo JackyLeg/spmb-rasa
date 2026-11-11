@@ -41,7 +41,6 @@ forms:
       - menu_pendaftaran
       - menu_pendaftaran_confirmation
 
-
 responses:
   utter_ask_menu_pendaftaran:
     - text: "Silakan pilih salah satu opsi pendaftaran:"
@@ -72,20 +71,20 @@ responses:
   utter_answer_prosedur_pendaftaran:
     - text: |
         PROSEDUR PENDAFTARAN SPMB UNIVERSITAS TRISAKTI
-        1. Buka portal pendaftaran online SPMB Trisakti.
-        2. Buat akun pendaftaran baru menggunakan email aktif.
-        3. Isi formulir data diri, data sekolah asal, dan unggah berkas yang diperlukan.
-        4. Lakukan pembayaran biaya pendaftaran untuk mendapatkan nomor seleksi.
-        5. Pilih program studi yang diinginkan.
+        1. Pendaftaran dilakukan secara daring (online) melalui portal https://spmb.trisakti.ac.id/ atau https://spmb.trisakti.ac.id/landingpage.
+        2. Klik "Daftar Sekarang" atau pilih menu "Login" untuk membuat akun baru.
+        3. Cek email terdaftar dan klik "Confirm Account" untuk mengaktifkan akun.
+        4. Login kembali ke portal, lalu isi data personal, info kontak, program studi, dan jalur seleksi pada dashboard.
+        5. Unggah dokumen persyaratan (sesuai jalur seleksi yang dipilih) dan lakukan konfirmasi jika data sudah benar.
+        6. Calon mahasiswa dapat mengunduh bukti pendaftaran sebagai calon mahasiswa baru Universitas Trisakti.
 
   utter_answer_persyaratan_pendaftaran:
     - text: |
         PERSYARATAN PENDAFTARAN SPMB
-        1. Memiliki ijazah SMA/SMK/MA/sederajat yang telah dilegalisir.
-        2. Surat Keterangan Lulus (jika ijazah belum terbit).
-        3. Pas foto terbaru ukuran 3x4 dan 4x6 latar belakang merah.
-        4. Kartu Keluarga (KK) dan KTP/Kartu Pelajar.
-        5. Nilai rapor semester 1-5 (khusus jalur prestasi/tanpa tes).
+        1. Pindaian kartu identitas (KTP/Kartu Pelajar) berwarna.
+        2. Pas foto terbaru berukuran 4x6 cm dengan latar belakang berwarna putih.
+        3. Surat Keterangan Tidak Buta Warna dari dokter Klinik Pratama UPM (Usakti Prima Medika), Puskesmas, Klinik Utama, atau Rumah Sakit bagi pendaftar program studi tertentu (FK, FKG, FSRD, FTKE, FALTL, FTSP, dan FTI [Teknik Mesin, Teknik Elektro, Teknik Industri]).
+        4. Memenuhi syarat latar belakang jurusan SMA/SMK/sederajat yang sesuai dengan program studi tujuan.
 
   utter_answer_transaksi_pendaftaran:
     - text: "Silakan selesaikan pengisian formulir pendaftaran dan kirimkan berkas pendaftaran Anda."

@@ -51,17 +51,16 @@ class MenuKartuUjian(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Kartu Ujian":
+        if pilihan_menu == "Prosedur Kartu Ujian":
                 if not fetch_peraturan_api(tracker.sender_id, "kartu_ujian_prosedur"):
                     dispatcher.utter_message(response="utter_answer_prosedur_kartu_ujian")
-            case "Persyaratan Kartu Ujian":
+        elif pilihan_menu == "Persyaratan Kartu Ujian":
                 if not fetch_peraturan_api(tracker.sender_id, "kartu_ujian_persyaratan"):
                     dispatcher.utter_message(response="utter_answer_persyaratan_kartu_ujian")
-            case "Hasil Kartu Ujian":
+        elif pilihan_menu == "Hasil Kartu Ujian":
                 if not fetch_peraturan_api(tracker.sender_id, "kartu_ujian_hasil"):
                     dispatcher.utter_message(response="utter_answer_hasil_kartu_ujian")
-            case _:
+        else:
                 pass
 
         return [

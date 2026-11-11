@@ -1,0 +1,20 @@
+# Import all action classes so Rasa SDK can discover them
+from actions.action_check_login_state import ActionCheckLoginState
+from actions.action_show_menu import ActionShowMenu
+
+from actions.not_login.action_info_dokumen_pendaftaran import InfoDokumenPendaftaran
+from actions.not_login.action_info_dokumen_registrasi import InfoDokumenRegistrasi
+from actions.not_login.action_info_jadwal_seleksi import InfoJadwalSeleksi
+from actions.not_login.action_info_skema_keuangan import InfoSkemaKeuangan
+
+from actions.login.action_menu_diskon_alumni import MenuDiskonAlumni
+from actions.login.action_menu_hasil_seleksi import MenuHasilSeleksi
+from actions.login.action_menu_kartu_ujian import MenuKartuUjian
+from actions.login.action_menu_pembayaran import MenuPembayaran
+from actions.login.action_menu_pendaftaran import MenuPendaftaran
+from actions.login.action_menu_penyetaraan import MenuPenyetaraan
+from actions.login.action_menu_perjanjian import MenuPerjanjian
+from actions.login.action_menu_pindah_prodi import MenuPindahProdi
+from actions.login.action_menu_reservasi_kesehatan import MenuReservasiKesehatan
+from actions.login.action_menu_undur_diri import MenuUndurDiri
+

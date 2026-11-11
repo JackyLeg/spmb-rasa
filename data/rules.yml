@@ -222,3 +222,13 @@ rules:
   steps:
   - intent: info_dokumen_registrasi
   - action: action_info_dokumen_registrasi
+
+- rule: Say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Change language
+  steps:
+  - intent: change_language
+  - action: utter_language_changed

@@ -28,6 +28,7 @@ nlu:
     - daah
     - dadahh
     - bye bye
+    - see you
 
 - intent: affirm
   examples: |
@@ -43,12 +44,15 @@ nlu:
     - yup
     - baik
     - setuju
+    - yes
+    - Yes
 
 - intent: deny
   examples: |
     - tidak
     - Tidak
     - no
+    - No
     - bukan
     - gak
     - ga
@@ -68,6 +72,8 @@ nlu:
     - apa saja menunya
     - buka menu
     - list menu
+    - show menu
+    - menu options
 
 - intent: ask_capabilities
   examples: |
@@ -79,6 +85,9 @@ nlu:
     - tolong bantu saya
     - help
     - bantuan
+    - what can you do
+    - what features are available
+    - what can you help me with
 
 - intent: ask_introduction
   examples: |
@@ -88,6 +97,8 @@ nlu:
     - apa itu spmbbot
     - jelaskan diri kamu
     - perkenalkan diri
+    - who are you
+    - what is spmbbot
 
 - intent: menu_pendaftaran
   examples: |
@@ -97,6 +108,9 @@ nlu:
     - info pendaftaran
     - menu pendaftaran
     - saya ingin daftar
+    - Admission
+    - admission
+    - apply
 
 - intent: menu_kartu_ujian
   examples: |
@@ -106,6 +120,8 @@ nlu:
     - info kartu ujian
     - cetak kartu
     - nomor ujian
+    - Exam Card
+    - exam card
 
 - intent: menu_hasil_seleksi
   examples: |
@@ -115,6 +131,8 @@ nlu:
     - hasil ujian
     - apakah saya lulus
     - hasil seleksi saya
+    - Selection Results
+    - selection results
 
 - intent: menu_perjanjian
   examples: |
@@ -123,6 +141,8 @@ nlu:
     - isi perjanjian
     - dokumen perjanjian
     - surat perjanjian
+    - Agreement
+    - agreement
 
 - intent: menu_pembayaran
   examples: |
@@ -133,6 +153,9 @@ nlu:
     - biaya kuliah
     - cara bayar
     - virtual account
+    - Payment / Finance
+    - payment
+    - finance
 
 - intent: menu_undur_diri
   examples: |
@@ -141,6 +164,10 @@ nlu:
     - batalkan pendaftaran
     - mengundurkan diri
     - batal masuk
+    - pembatalan pendaftaran
+    - Pembatalan Pendaftaran
+    - Withdrawal
+    - withdrawal
 
 - intent: menu_pindah_prodi
   examples: |
@@ -149,6 +176,9 @@ nlu:
     - ganti jurusan
     - pindah program studi
     - ganti prodi
+    - Transfer Major
+    - transfer major
+    - change major
 
 - intent: menu_diskon_alumni
   examples: |
@@ -157,6 +187,8 @@ nlu:
     - potongan alumni
     - beasiswa alumni
     - potongan biaya alumni
+    - Alumni Discount
+    - alumni discount
 
 - intent: menu_penyetaraan
   examples: |
@@ -165,6 +197,8 @@ nlu:
     - penyetaraan ijazah
     - konversi nilai
     - penyetaraan nilai luar negeri
+    - Equivalency
+    - equivalency
 
 - intent: menu_reservasi_kesehatan
   examples: |
@@ -174,6 +208,8 @@ nlu:
     - reservasi pemeriksaan kesehatan
     - jadwal tes kesehatan
     - booking tes kesehatan
+    - Medical Examination Reservation
+    - medical examination reservation
 
 - intent: info_jadwal_seleksi
   examples: |
@@ -183,6 +219,8 @@ nlu:
     - jadwal pendaftaran
     - kapan pendaftaran dibuka
     - tanggal ujian
+    - Selection Schedule Info
+    - selection schedule
 
 - intent: info_skema_keuangan
   examples: |
@@ -192,6 +230,8 @@ nlu:
     - rincian biaya
     - rincian keuangan
     - berapa biaya masuk
+    - Financial Scheme Info
+    - financial scheme info
 
 - intent: info_dokumen_pendaftaran
   examples: |
@@ -200,6 +240,8 @@ nlu:
     - dokumen daftar
     - berkas pendaftaran
     - apa saja dokumen pendaftaran
+    - Application Document Requirements Info
+    - application document requirements info
 
 - intent: info_dokumen_registrasi
   examples: |
@@ -208,3 +250,28 @@ nlu:
     - dokumen registrasi
     - berkas daftar ulang
     - dokumen daftar ulang
+    - Enrollment Document Requirements Info
+    - enrollment document requirements info
+
+- intent: bot_challenge
+  examples: |
+    - kamu bot?
+    - kamu robot?
+    - apa kamu manusia?
+    - apakah kamu AI?
+    - kamu asli atau bot
+    - are you a bot?
+    - are you human?
+
+- intent: change_language
+  examples: |
+    - english
+    - speak english
+    - bahasa indonesia
+    - bahasa
+    - ganti bahasa
+    - change language
+    - pake indo
+    - pakai bahasa inggris
+    - can you speak english
+    - english pls

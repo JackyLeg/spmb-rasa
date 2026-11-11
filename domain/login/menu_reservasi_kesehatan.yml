@@ -41,7 +41,6 @@ forms:
       - menu_reservasi_kesehatan
       - menu_reservasi_kesehatan_confirmation
 
-
 responses:
   utter_ask_menu_reservasi_kesehatan:
     - text: "Silakan pilih salah satu opsi reservasi pemeriksaan kesehatan:"
@@ -71,19 +70,18 @@ responses:
 
   utter_answer_prosedur_reservasi_kesehatan:
     - text: |
-        PROSEDUR RESERVASI PEMERIKSAAN KESEHATAN
-        1. Login ke portal SPMB Trisakti Anda.
-        2. Pilih menu "Reservasi Pemeriksaan Kesehatan".
-        3. Tentukan tanggal dan waktu jadwal pemeriksaan di klinik/rumah sakit rujukan Universitas Trisakti.
-        4. Unduh bukti reservasi kesehatan yang diterbitkan.
-        5. Datang tepat waktu sesuai jadwal dengan membawa dokumen bukti reservasi.
+        PROSEDUR PEMERIKSAAN KESEHATAN
+        1. Calon mahasiswa melakukan pemeriksaan kesehatan secara mandiri di Klinik Pratama Usakti Prima Medika (UPM), Puskesmas, Klinik Utama, atau Rumah Sakit.
+        2. Dapatkan Surat Keterangan Sehat dan Surat Keterangan Bebas Narkoba.
+        3. Bagi pendaftar program studi tertentu, wajib menyertakan pemeriksaan buta warna untuk mendapatkan Surat Keterangan Tidak Buta Warna.
+        4. Hasil pindaian berwarna (scan asli format PDF/PNG/JPG) dari surat-surat tersebut wajib diunggah ke menu kelengkapan registrasi di portal SPMB.
 
   utter_answer_persyaratan_reservasi_kesehatan:
     - text: |
         PERSYARATAN RESERVASI KESEHATAN
-        1. Telah dinyatakan lolos ujian tulis/jalur prestasi dan berkewajiban tes kesehatan (khususnya FK dan FKG).
-        2. Menunjukkan kartu bukti pendaftaran seleksi masuk/bukti kelulusan seleksi.
-        3. Membawa identitas diri (KTP/Kartu Pelajar) saat melakukan pemeriksaan kesehatan.
+        1. Surat Keterangan Sehat dan Bebas Narkoba yang resmi diterbitkan oleh dokter.
+        2. Surat Keterangan Tidak Buta Warna bagi program studi di fakultas: FK, FKG, FSRD, FTKE, FALTL, FTSP, dan FTI (Teknik Mesin, Teknik Elektro, Teknik Industri).
+        3. Unggah seluruh berkas tersebut melalui menu "Update Data Kelengkapan Registrasi" paling lambat pada tanggal 20 Agustus 2026.
 
   utter_answer_transaksi_reservasi_kesehatan:
     - text: "Silakan isi formulir dan tentukan jadwal reservasi pemeriksaan kesehatan Anda."

@@ -51,19 +51,18 @@ class MenuDiskonAlumni(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Diskon Alumni":
+        if pilihan_menu == "Prosedur Diskon Alumni":
                 if not fetch_peraturan_api(tracker.sender_id, "diskon_alumni_prosedur"):
                     dispatcher.utter_message(response="utter_answer_prosedur_diskon_alumni")
-            case "Persyaratan Diskon Alumni":
+        elif pilihan_menu == "Persyaratan Diskon Alumni":
                 if not fetch_peraturan_api(tracker.sender_id, "diskon_alumni_persyaratan"):
                     dispatcher.utter_message(response="utter_answer_persyaratan_diskon_alumni")
-            case "Transaksi Diskon Alumni":
+        elif pilihan_menu == "Transaksi Diskon Alumni":
                 dispatcher.utter_message(response="utter_answer_transaksi_diskon_alumni")
-            case "Hasil Diskon Alumni":
+        elif pilihan_menu == "Hasil Diskon Alumni":
                 if not fetch_peraturan_api(tracker.sender_id, "diskon_alumni_hasil"):
                     dispatcher.utter_message(response="utter_answer_hasil_diskon_alumni")
-            case _:
+        else:
                 pass
 
         return [

@@ -41,7 +41,6 @@ forms:
       - menu_pindah_prodi
       - menu_pindah_prodi_confirmation
 
-
 responses:
   utter_ask_menu_pindah_prodi:
     - text: "Silakan pilih salah satu opsi pindah prodi:"
@@ -71,19 +70,19 @@ responses:
 
   utter_answer_prosedur_pindah_prodi:
     - text: |
-        PROSEDUR PINDAH PROGRAM STUDI (SEBELUM KULIAH DIMULAI)
-        1. Login ke portal SPMB Trisakti Anda.
-        2. Masuk ke halaman pengajuan perubahan program studi.
-        3. Isi formulir permohonan pindah program studi dengan memilih prodi baru yang dituju.
-        4. Bayar biaya administrasi perpindahan prodi jika diperlukan.
-        5. Tunggu proses seleksi internal atau verifikasi kecocokan nilai ujian seleksi Anda dengan batas minimal (passing grade) prodi baru.
+        PROSEDUR PINDAH PROGRAM STUDI
+        1. Mahasiswa mendaftar perpindahan lintas program studi dalam satu Fakultas atau antar Fakultas (jalur Pindahan Internal).
+        2. Daftarkan permohonan melalui https://spmb.trisakti.ac.id/ dan bayar biaya seleksi/pindahan sebesar Rp750.000.
+        3. Isi formulir permohonan transfer dan unggah berkas administrasi pendukung (transkrip nilai, akreditasi prodi asal, dan bukti aktif PDDikti).
+        4. Perpindahan lintas prodi satu fakultas diproses sesuai ketentuan Fakultas. Perpindahan antar Fakultas disahkan Keputusan Rektor atas pertimbangan Dekan terkait.
 
   utter_answer_persyaratan_pindah_prodi:
     - text: |
         PERSYARATAN PINDAH PRODI
-        1. Masih dalam masa periode pendaftaran SPMB dan perkuliahan semester ganjil belum dimulai.
-        2. Nilai ujian masuk SPMB Anda memenuhi syarat passing grade program studi baru yang dituju.
-        3. Daya tampung/kuota pada program studi baru masih tersedia.
+        1. Berstatus aktif dan terdaftar di PDDikti (https://pddikti.kemdiktisaintek.go.id).
+        2. Kuliah di prodi asal tidak lebih dari 5 semester (khusus Fakultas Hukum tidak lebih dari 3 semester) dan tidak putus studi/drop out (DO).
+        3. Menjalani kuliah minimal 2 semester dengan IPK minimal 2,50.
+        4. Fakultas Kedokteran (FK) dan Fakultas Kedokteran Gigi (FKG) tidak menerima mahasiswa pindahan.
 
   utter_answer_transaksi_pindah_prodi:
     - text: "Silakan kirimkan formulir permohonan pindah program studi Anda untuk kami verifikasi."

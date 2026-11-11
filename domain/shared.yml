@@ -9,6 +9,7 @@ intents:
   - ask_capabilities
   - ask_introduction
   - bot_challenge
+  - change_language
   - menu_pendaftaran
   - menu_kartu_ujian
   - menu_hasil_seleksi
@@ -78,3 +79,9 @@ responses:
 
   utter_imabot:
     - text: "Saya adalah SPMBBot, asisten virtual Anda untuk proses Penerimaan Mahasiswa Baru Universitas Trisakti."
+
+  utter_goodbye:
+    - text: "Terima kasih telah menggunakan SPMBBot. Sampai jumpa!"
+
+  utter_language_changed:
+    - text: "Saya sekarang akan menggunakan bahasa Indonesia. Ada yang bisa saya bantu?"

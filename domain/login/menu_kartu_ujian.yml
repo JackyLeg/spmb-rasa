@@ -40,7 +40,6 @@ forms:
       - menu_kartu_ujian
       - menu_kartu_ujian_confirmation
 
-
 responses:
   utter_ask_menu_kartu_ujian:
     - text: "Silakan pilih salah satu opsi kartu ujian:"
@@ -70,16 +69,16 @@ responses:
     - text: |
         PROSEDUR CETAK KARTU PESERTA UJIAN
         1. Login ke akun portal SPMB Trisakti Anda.
-        2. Masuk ke halaman dashboard peserta.
-        3. Klik menu "Cetak Kartu Ujian" setelah status pembayaran pendaftaran terverifikasi.
-        4. Simpan berkas PDF atau cetak fisik kartu ujian untuk dibawa saat hari pelaksanaan ujian.
+        2. Masuk ke halaman dashboard peserta setelah status pembayaran pendaftaran terverifikasi.
+        3. Calon mahasiswa mengunduh kartu peserta ujian dari dashboard akun SPMB untuk melihat jadwal dan ketentuan tes.
+        4. Mengikuti Ujian Saringan Masuk (USM) secara daring (online) melalui portal SPMB sesuai tanggal yang dipilih.
 
   utter_answer_persyaratan_kartu_ujian:
     - text: |
         PERSYARATAN KARTU UJIAN
-        1. Status pembayaran formulir pendaftaran telah lunas dan terverifikasi di sistem keuangan.
-        2. Seluruh data biodata wajib pada formulir pendaftaran telah diisi dengan lengkap.
-        3. Dokumen foto peserta berformat resmi telah berhasil diunggah.
+        1. Status pembayaran biaya seleksi/pendaftaran telah lunas dan terverifikasi di sistem keuangan.
+        2. Pengisian data personal dan berkas pendaftaran telah lengkap dan terkonfirmasi.
+        3. Khusus peminat FK & FKG wajib mengikuti tes tambahan (IST, Psikotes, Biologi & Kimia) yang diselenggarakan oleh Biro Psikologi/panitia.
 
   utter_answer_hasil_kartu_ujian:
     - text: "Kartu Ujian Anda telah diterbitkan. Silakan unduh melalui dashboard akun SPMB Anda."

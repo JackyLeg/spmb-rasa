@@ -51,19 +51,18 @@ class MenuPendaftaran(Action):
                 print(f"Failed to fetch from get-peraturan API: {e}")
             return False
 
-        match pilihan_menu:
-            case "Prosedur Pendaftaran":
+        if pilihan_menu == "Prosedur Pendaftaran":
                 if not fetch_peraturan_api(tracker.sender_id, "pendaftaran_prosedur"):
                     dispatcher.utter_message(response="utter_answer_prosedur_pendaftaran")
-            case "Persyaratan Pendaftaran":
+        elif pilihan_menu == "Persyaratan Pendaftaran":
                 if not fetch_peraturan_api(tracker.sender_id, "pendaftaran_persyaratan"):
                     dispatcher.utter_message(response="utter_answer_persyaratan_pendaftaran")
-            case "Transaksi Pendaftaran":
+        elif pilihan_menu == "Transaksi Pendaftaran":
                 dispatcher.utter_message(response="utter_answer_transaksi_pendaftaran")
-            case "Hasil Pendaftaran":
+        elif pilihan_menu == "Hasil Pendaftaran":
                 if not fetch_peraturan_api(tracker.sender_id, "pendaftaran_hasil"):
                     dispatcher.utter_message(response="utter_answer_hasil_pendaftaran")
-            case _:
+        else:
                 pass
 
         return [

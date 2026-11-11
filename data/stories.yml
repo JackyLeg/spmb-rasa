@@ -14,3 +14,149 @@ stories:
   - intent: ask_menu
   - action: action_check_login_state
   - action: action_show_menu
+
+- story: direct ask menu without greet
+  steps:
+  - intent: ask_menu
+  - action: action_check_login_state
+  - action: action_show_menu
+
+- story: login menu - diskon alumni happy path
+  steps:
+  - intent: menu_diskon_alumni
+  - action: menu_diskon_alumni_form
+  - active_loop: menu_diskon_alumni_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_diskon_alumni
+
+- story: login menu - kartu ujian happy path
+  steps:
+  - intent: menu_kartu_ujian
+  - action: menu_kartu_ujian_form
+  - active_loop: menu_kartu_ujian_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_kartu_ujian
+
+- story: login menu - hasil seleksi happy path
+  steps:
+  - intent: menu_hasil_seleksi
+  - action: menu_hasil_seleksi_form
+  - active_loop: menu_hasil_seleksi_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_hasil_seleksi
+
+- story: login menu - pendaftaran happy path
+  steps:
+  - intent: menu_pendaftaran
+  - action: menu_pendaftaran_form
+  - active_loop: menu_pendaftaran_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_pendaftaran
+
+- story: login menu - pembayaran happy path
+  steps:
+  - intent: menu_pembayaran
+  - action: menu_pembayaran_form
+  - active_loop: menu_pembayaran_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_pembayaran
+
+- story: login menu - perjanjian happy path
+  steps:
+  - intent: menu_perjanjian
+  - action: menu_perjanjian_form
+  - active_loop: menu_perjanjian_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_perjanjian
+
+- story: login menu - undur diri happy path
+  steps:
+  - intent: menu_undur_diri
+  - action: menu_undur_diri_form
+  - active_loop: menu_undur_diri_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_undur_diri
+
+- story: login menu - pindah prodi happy path
+  steps:
+  - intent: menu_pindah_prodi
+  - action: menu_pindah_prodi_form
+  - active_loop: menu_pindah_prodi_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_pindah_prodi
+
+- story: login menu - penyetaraan happy path
+  steps:
+  - intent: menu_penyetaraan
+  - action: menu_penyetaraan_form
+  - active_loop: menu_penyetaraan_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_penyetaraan
+
+- story: login menu - reservasi kesehatan happy path
+  steps:
+  - intent: menu_reservasi_kesehatan
+  - action: menu_reservasi_kesehatan_form
+  - active_loop: menu_reservasi_kesehatan_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_menu_reservasi_kesehatan
+
+- story: not login - info jadwal seleksi
+  steps:
+  - intent: info_jadwal_seleksi
+  - action: action_info_jadwal_seleksi
+
+- story: not login - info skema keuangan
+  steps:
+  - intent: info_skema_keuangan
+  - action: action_info_skema_keuangan
+
+- story: not login - info dokumen pendaftaran
+  steps:
+  - intent: info_dokumen_pendaftaran
+  - action: action_info_dokumen_pendaftaran
+
+- story: not login - info dokumen registrasi
+  steps:
+  - intent: info_dokumen_registrasi
+  - action: action_info_dokumen_registrasi
+
+- story: ask capabilities
+  steps:
+  - intent: ask_capabilities
+  - action: utter_provide_info
+
+- story: ask introduction
+  steps:
+  - intent: ask_introduction
+  - action: utter_imabot
+
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: change language
+  steps:
+  - intent: change_language
+  - action: utter_language_changed

@@ -41,7 +41,6 @@ forms:
       - menu_diskon_alumni
       - menu_diskon_alumni_confirmation
 
-
 responses:
   utter_ask_menu_diskon_alumni:
     - text: "Silakan pilih salah satu opsi diskon alumni:"
@@ -71,20 +70,17 @@ responses:
 
   utter_answer_prosedur_diskon_alumni:
     - text: |
-        PROSEDUR PENGAJUAN DISKON BIAYA KULIAH JALUR ALUMNI/KELUARGA ALUMNI
-        1. Login ke portal SPMB Trisakti Anda.
-        2. Pilih menu pengajuan potongan biaya pendidikan (Diskon Alumni).
-        3. Isi data hubungan kekeluargaan dengan alumni Universitas Trisakti.
-        4. Unggah dokumen bukti alumni (Ijazah/Kartu Alumni/KK).
-        5. Tim administrasi keuangan akan memverifikasi keabsahan data untuk persetujuan pemotongan biaya.
+        PROSEDUR DISKON/POTONGAN SPP (PEMBAYARAN AWAL)
+        1. Lakukan pembayaran biaya kuliah lunas sekaligus (Paket A) sesuai tagihan di akun SPMB.
+        2. Potongan SPP akan dihitung secara otomatis oleh sistem keuangan berdasarkan tanggal pembayaran.
+        3. Bayar sebelum 31 Mei 2026 untuk mendapat potongan SPP 10% (FKG potongan 5%), atau antara 1 Juni s.d. 31 Agustus 2026 untuk mendapat potongan 5% (kecuali FK & FKG).
 
   utter_answer_persyaratan_diskon_alumni:
     - text: |
-        PERSYARATAN DISKON ALUMNI
-        1. Pendaftar adalah anak kandung atau saudara kandung dari alumni Universitas Trisakti.
-        2. Fotokopi Ijazah Universitas Trisakti milik orang tua/saudara kandung yang bersangkutan.
-        3. Kartu Keluarga (KK) asli sebagai bukti hubungan kekeluargaan.
-        4. Kartu Anggota Ikatan Alumni Trisakti (jika ada).
+        PERSYARATAN DISKON/POTONGAN SPP
+        1. Memilih Paket A (pembayaran lunas sekaligus 100% sesuai periode diterima).
+        2. Pembayaran diselesaikan paling lambat tanggal 31 Mei 2026 (potongan 10%, FKG 5%) atau antara 1 Juni s.d. 31 Agustus 2026 (potongan 5%, tidak berlaku untuk FK & FKG).
+        3. Berlaku untuk program Sarjana dan Diploma.
 
   utter_answer_transaksi_diskon_alumni:
     - text: "Silakan kirimkan dokumen bukti kekeluargaan alumni Anda untuk kami verifikasi potongan biaya."

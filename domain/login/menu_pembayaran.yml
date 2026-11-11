@@ -41,7 +41,6 @@ forms:
       - menu_pembayaran
       - menu_pembayaran_confirmation
 
-
 responses:
   utter_ask_menu_pembayaran:
     - text: "Silakan pilih salah satu opsi pembayaran / keuangan:"
@@ -72,16 +71,21 @@ responses:
   utter_answer_prosedur_pembayaran:
     - text: |
         PROSEDUR PEMBAYARAN BIAYA PENDIDIKAN / REGISTRASI
-        1. Login ke portal SPMB Trisakti untuk melihat rincian biaya registrasi ulang dan nomor Virtual Account (VA) Anda.
-        2. Pembayaran dapat dilakukan melalui transfer bank (ATM, m-Banking, atau teller) menggunakan nomor VA tersebut.
-        3. Konfirmasi pembayaran akan terjadi secara otomatis di sistem portal dalam waktu maksimal 1x24 jam setelah pembayaran sukses dilakukan.
+        1. Login ke portal SPMB Trisakti untuk melihat rincian biaya pendidikan dan nomor Virtual Account (VA) Bank BNI pada menu "Status Keuangan" tab "Payment".
+        2. Pembayaran biaya pendidikan dilakukan melalui transfer bank ke VA Bank BNI yang tertera.
+        3. Calon mahasiswa dapat memilih salah satu paket pembayaran: Paket A (pembayaran lunas sekaligus 100%) atau Paket B (diangsur 3 atau 4 kali sesuai Peraturan Rektor No. 32 Tahun 2025).
+        4. Pelunasan seluruh komponen biaya pendidikan harus diselesaikan sebelum mengikuti Ujian Akhir Semester (UAS) Semester Gasal.
 
   utter_answer_persyaratan_pembayaran:
     - text: |
         PERSYARATAN PEMBAYARAN BIAYA KULIAH
-        1. Memiliki nomor Virtual Account resmi dari Universitas Trisakti.
-        2. Melakukan pembayaran sejumlah tagihan yang tertera pada rincian skema keuangan Anda (tidak kurang dan tidak lebih).
-        3. Simpan struk/bukti transfer pembayaran sebagai arsip pribadi.
+        1. Memiliki nomor BNI Virtual Account resmi yang terbit di akun SPMB masing-masing.
+        2. Membayar sesuai tagihan yang tertera pada skema keuangan.
+        3. Membayar Biaya Layanan Kesehatan Mahasiswa (LKM) sebesar Rp60.000 per semester.
+        4. Bagi WNA, biaya pendidikan dikenakan tarif 1 s.d. 1,5 kali biaya pendidikan WNI.
+        5. Diskon/Potongan SPP (Pembayaran Awal):
+            - Potongan SPP 10% jika memilih Paket A dan membayar paling lambat 31 Mei 2026 (potongan SPP FKG adalah 5%).
+            - Potongan SPP 5% jika membayar dari tanggal 1 Juni s.d. 31 Agustus 2026 (kecuali FK dan FKG).
 
   utter_answer_transaksi_pembayaran:
     - text: "Silakan lakukan pembayaran biaya pendidikan Anda melalui Virtual Account yang tertera di portal."
